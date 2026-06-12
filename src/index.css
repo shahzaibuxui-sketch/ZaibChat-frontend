@@ -1,0 +1,168 @@
+/* Global reset and base styles - plain CSS, no Tailwind */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth transitions for theme switching */
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              transform 0.2s ease;
+}
+
+/* Exclude images from background/color transitions */
+img,
+img *,
+img::before,
+img::after {
+  transition: transform 0.2s ease, opacity 0.2s ease !important;
+}
+
+/* Exclude SVG icons from background/color transitions for smoother animation */
+svg,
+svg * {
+  transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease !important;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, 'Helvetica Neue', sans-serif;
+  background: var(--bg-body);
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-weight: 450;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Premium scrollbar styling with transition */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Smooth transitions for all theme-dependent elements */
+.app-container,
+.chat-header,
+.sidebar,
+.chat-window,
+.message-wrapper,
+.bubble,
+.user-bubble,
+.assistant-bubble,
+.input-wrapper,
+.input-bar-container,
+.send-btn,
+.action-btn,
+.file-menu,
+.file-preview-chip,
+.settings-panel,
+.dropdown-menu,
+.modal-content {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease;
+}
+
+/* Specific transition for text elements */
+h1, h2, h3, h4, p, span, .message-text, .chat-title, 
+.welcome-heading, .welcome-subtitle, .file-preview-name,
+.settings-section h4, .toggle-label {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth border transitions for interactive elements */
+button,
+.action-btn,
+.send-btn,
+.theme-toggle-btn,
+.new-chat-btn,
+.settings-btn,
+.file-menu-item,
+.edit-save-btn,
+.edit-cancel-btn,
+.modal-buttons button {
+  transition: background-color 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+/* CSS Variables for themes */
+:root {
+  /* Light theme defaults - Updated to match logo colors */
+  --bg-body: #f7f7f8;
+  --header-bg: rgba(255, 255, 255, 0.8);
+  --chat-bg: #f7f7f8;
+  --input-bar-bg: transparent;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --text-primary: #1a1a1a;
+  --text-secondary: #6e6e6e;
+  --user-msg-bg: #1a6fc4;
+  --user-msg-text: #ffffff;
+  --ai-msg-bg: #ffffff;
+  --input-field-bg: #ffffff;
+  --placeholder-color: #8e8e8e;
+  --accent-color: #1a6fc4;
+  --accent-hover: #1558a0;
+  --toggle-bg: #f0f0f0;
+  --toggle-hover: #e0e0e0;
+  --scrollbar-thumb: #d0d0d0;
+  --scrollbar-thumb-hover: #b0b0b0;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+/* Mobile-specific transition optimizations */
+@media (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.25s;
+  }
+  
+  body {
+    transition-duration: 0.25s;
+  }
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
