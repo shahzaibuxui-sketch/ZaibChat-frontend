@@ -34,9 +34,3 @@ Backend .env:
 GEMINI_API_KEY=your_gemini_api_key
 👨‍💻 Developer
 Built by Shahzaib — UI/UX Designer & Frontend Developer
-
-Copy this, create a README.md file in your ZaibChat-frontend folder, paste it, then push to GitHub:
-git add README.md
-git commit -m "Add README"
-git push
-🚀
